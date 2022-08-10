@@ -24,4 +24,13 @@ steps:
   inputs:
     containerRegistry: 'dockerhub'
     command: 'login'
-
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerhub'
+    repository: 'linderman23 / learning'
+    command: 'buildAndPush'
+    Dockerfile: '**/AzureDockerfile'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerhub'
+    command: 'logout'
